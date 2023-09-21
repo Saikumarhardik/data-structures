@@ -1,0 +1,24 @@
+import java.util.*;
+import java.lang.*;
+public class Main {
+  public static void main(String[] args) {
+      int last = factors(100);
+      System.out.println(last);
+  }
+  public static Integer factors(Integer fact){
+      int count =0;
+      for(int i =1;i*i<=fact;i++){
+          if(fact%i==0){
+              if(i*i!=fact){
+                  count=count+2;
+              }
+              else{
+                  count++;
+              }
+          }
+      }
+      return count;
+  }
+}
+
+  
