@@ -1,0 +1,51 @@
+import java.util.*;
+import java.lang.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        //1D Array List
+        ArrayList<Integer> A = new ArrayList<Integer>();
+        A.add(1);
+        A.add(2);
+        A.add(4);
+        A.add(5);
+        A.add(7);
+        A.add(24);
+        //prefix array
+        ArrayList<Integer> pf = new ArrayList<Integer>();
+        pf.add(0, A.get(0));
+        for(int i=1;i<A.size();i++){
+            pf.add(i, pf.get(i-1) + A.get(i));
+         // pf.add(1, pf.get(0) + A.get(1)
+        }
+        //System.out.print(pf);
+        //child1
+        ArrayList<Integer> B = new ArrayList<Integer>();
+        B.add(1);
+        B.add(2);
+        //child2
+        ArrayList<Integer> C = new ArrayList<Integer>();
+        C.add(4);
+        C.add(5);
+        //2D  array list
+        
+        ArrayList<ArrayList<Integer>> D = new ArrayList<ArrayList<Integer>>();
+        D.add(B);
+        D.add(C);
+      // can we skip to the good part 
+        int s = D.size();
+        for(int i=0; i<s;i++){
+            int sum =0;
+            int count =0;
+            int start =0;
+            int end =0;
+            start = D.get(i).get(count);
+            end = D.get(i).get(count+1);
+            sum = pf.get(end)-pf.get(start-1);
+            System.out.println(sum);
+        }
+    }
+}
+
+[10pow9, 10pow9, 10pow9, 10pow9, 10pow9]
+
+10pow9+10pow9+10pow9+10pow9+10pow9  = sum = 10000000000
