@@ -1,0 +1,51 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+import java.lang.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        a.add(4);
+        a.add(1);
+        a.add(3);
+        a.add(7);
+        a.add(10);
+        int n = a.size();
+        //System.out.print(a);
+        ArrayList<Integer> pfe = new ArrayList<Integer>();
+        ArrayList<Integer> pfo = new ArrayList<Integer>();
+        pfe.add(a.get(0));
+        for(int i=1;i<n;i++){
+            if(i%2==0){
+                pfe.add(a.get(i)+pfe.get(i-1));
+            }
+            else{
+                pfe.add(pfe.get(i-1));
+            }
+        }
+        pfo.add(0,0);
+        for(int i=1;i<a.size();i++){
+            if(i%2!=0){
+                pfo.add(a.get(i)+pfo.get(i-1));
+            }
+            else{
+                pfo.add(pfo.get(i-1));
+            }
+        }
+        for(int i=0;i<pfe.size();i++){
+            int sume =0;
+            int sumo=0;
+            if(i == 0) {
+                sume = pfo.get(n-1) - pfo.get(i);
+                sumo = pfe.get(n-1) - pfe.get(i);
+            }              
+            else {
+                sume = pfe.get(i-1) + pfo.get(n-1) - pfo.get(i);
+                sumo = pfo.get(i-1) + pfe.get(n-1) - pfe.get(i);
+            }
+            if(sumo == sume) {
+                System.out.print(i);
+            }
+        } 
+    }
+}
