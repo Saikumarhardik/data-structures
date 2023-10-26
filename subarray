@@ -1,0 +1,47 @@
+import java.util.*;
+import java.lang.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        ArrayList<Integer>  arr = new ArrayList<Integer>();
+        arr.add(1);
+        arr.add(2);
+        arr.add(6);
+        arr.add(5);
+        arr.add(4);
+        arr.add(9);
+        arr.add(5);
+        arr.add(8);
+        arr.add(1);
+        arr.add(2);
+        int min = Collections.min(arr);
+        int max = Collections.max(arr);
+        
+        int min_index= -1;
+        int max_index= -1;
+        int len1 =0;
+        int len2 =0;
+        
+        for(int i =arr.size()-1;i>=0;i--){
+            if(arr.get(i)==min){
+                min_index=i;
+                if(max_index!=-1){
+                    len1 = max_index-min_index+1;
+                }
+            }
+            if(arr.get(i)==max){
+                max_index=i;
+                if(min_index!=-1){
+                    len2 = min_index-max_index+1;
+                }
+            }
+        }
+        if(len1<len2){
+            System.out.print(len1);
+        }
+        else{
+          System.out.print(len2);  
+        }
+        
+    }
+     
+}
